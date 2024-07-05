@@ -17,7 +17,7 @@
       const li = document.createElement('li');
       li.textContent = JSON.stringify(config);
       document.getElementById('realtime_configs').appendChild(li);
-      console.log('check config value:  ', configuration.realtime_configs?.map.config);
+      console.log('check config value:  ', eraWidget.onValues.value);
     });
 
     document.getElementById('history_configs').innerHTML = ''
@@ -37,7 +37,8 @@
   })
   eraWidget.onValues((values) => {
     const input = document.getElementById('the_switch');
-    input.checked = values[config.id].value;
+    var temp_value = values[config.id].value;
+    console.log('check config value:  ', temp_value);
   });
   eraWidget.ready()
 </script>
