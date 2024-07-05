@@ -38,9 +38,20 @@
   eraWidget.onValues((values) => {
     const input = document.getElementById('the_switch');
     var temp_value = values[config.id].value;
-    console.log('check config value:  ', temp_value);
+    console.log('check config value 1:  ', temp_value);
   });
-  eraWidget.ready()
+</script>
+
+<script>
+  let config1 = null;
+  eraWidget.onConfiguration((configuration) => {
+    config = configuration.realtime_configs[1];
+  })
+  eraWidget.onValues((values) => {
+    const input = document.getElementById('the_switch1');
+    var hum_value = values[config.id].value;
+    console.log('check config value 2:  ', hum_value);
+  });
 </script>
 
   <div>Check the realtime value 1</div>
