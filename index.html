@@ -36,9 +36,10 @@
     config = configuration.realtime_configs[0];
   })
   eraWidget.onValues((values) => {
-    const input = document.getElementById('the_switch');
+    // const input = document.getElementById('the_switch');
     var temp_value = values[config.id].value;
     console.log('check config value 1:  ', temp_value);
+    document.getElementById('the_switch').innerHTML = temp_value;
   });
 </script>
 
@@ -48,14 +49,17 @@
     config = configuration.realtime_configs[1];
   })
   eraWidget.onValues((values) => {
-    const input = document.getElementById('the_switch1');
+    // const input = document.getElementById('the_switch1');
     var hum_value = values[config.id].value;
     console.log('check config value 2:  ', hum_value);
+    document.getElementById('the_switch1').innerHTML = hum_value;
   });
 </script>
 
-  <div>Check the realtime value 1</div>
-  <pan id = "the_switch"></pan>
+  <div>Check the realtime value temp</div>
+  <pan id = "the_switch1"></pan>
+  <div>Check the realtime value humi</div>
+  <pan id = "the_switch2"></pan>
 </body>
 </html>
  
