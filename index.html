@@ -20,16 +20,6 @@
       console.log('check config value:  ', configuration.realtime_configs?.map.config);
     });
 
-    let config = null;
-    eraWidget.onConfiguration((configuration) => {
-      config = configuration.realtime_configs[0];
-    })
-    eraWidget.onValues((values) => {
-      const input = document.getElementById('the_switch');
-      var check_get_value = values[config.id].value;
-      console.log('check_get_value is: ', check_get_value);
-    });
- 
     document.getElementById('history_configs').innerHTML = ''
     configuration.history_configs?.map((config) => {
       const li = document.createElement('li');
@@ -39,7 +29,20 @@
   })
   eraWidget.ready();
 </script>
-  <div>Check the realtime value</div>
+
+<script>
+  let config = null;
+  eraWidget.onConfiguration((configuration) => {
+    config = configuration.realtime_configs[0];
+  })
+  eraWidget.onValues((values) => {
+    const input = document.getElementById('the_switch');
+    input.checked = values[config.id].value;
+  });
+  eraWidget.ready()
+</script>
+
+  <div>Check the realtime value 1</div>
   <pan id = "the_switch"></pan>
 </body>
 </html>
