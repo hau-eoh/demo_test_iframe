@@ -17,6 +17,17 @@
       const li = document.createElement('li');
       li.textContent = JSON.stringify(config);
       document.getElementById('realtime_configs').appendChild(li);
+      console.log('check config value:  ', configuration.realtime_configs?.map.config);
+    });
+
+    let config = null;
+    eraWidget.onConfiguration((configuration) => {
+      config = configuration.realtime_configs[0];
+    })
+    eraWidget.onValues((values) => {
+      const input = document.getElementById('the_switch');
+      var check_get_value = values[config.id].value;
+      console.log('check_get_value is: ', check_get_value);
     });
  
     document.getElementById('history_configs').innerHTML = ''
@@ -26,8 +37,10 @@
       document.getElementById('history_configs').appendChild(li);
     });
   })
-  eraWidget.ready()
+  eraWidget.ready();
 </script>
+  <div>Check the realtime value</div>
+  <pan id = "the_switch"></pan>
 </body>
 </html>
  
