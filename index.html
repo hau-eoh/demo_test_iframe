@@ -10,7 +10,7 @@
 <ul id="history_configs"></ul>
 <script src="https://www.unpkg.com/@eohjsc/era-widget@1.0.14/src/index.js"></script>
 
-<!-- <script>
+<script>
   eraWidget.onConfiguration((configuration) => {
     document.getElementById('realtime_configs').innerHTML = ''
     configuration.realtime_configs?.map((config) => {
@@ -28,11 +28,11 @@
     });
   })
   eraWidget.ready();
-</script> -->
+</script>
 
 <script>
   const eraWidget = new EraWidget();
-  let config = null, config1 = null;
+  let config = null;
   eraWidget.onConfiguration((configuration) => {
     config = configuration.realtime_configs[0];
   })
@@ -42,8 +42,12 @@
     console.log('check config value 1:  ', temp_value);
     document.getElementById('the_switch').innerHTML = temp_value;
   });
-  
-  eraWidget.onConfiguration((configuration) => {
+  eraWidget.ready();
+</script>
+
+<script>
+  let config1 = null;
+    eraWidget.onConfiguration((configuration) => {
     config = configuration.realtime_configs[1];
   })
   eraWidget.onValues((values) => {
@@ -52,12 +56,11 @@
     console.log('check config value 2:  ', hum_value);
     document.getElementById('the_switch1').innerHTML = hum_value;
   })
-  eraWidget.ready();
 </script>
 
   <div>
-    <div><div>Nhiệt độ</div><span id="the_switch"></span><span style="font-family: Arial, Helvetica, sans-serif; font-size: 35;">°C</span></div>
-    <div><div>Nhiệt độ</div><span id="the_switch1"></span><span style="font-family: Arial, Helvetica, sans-serif; font-size: 35;">%</span></div>
+    <h1 style="font-family: Arial, Helvetica, sans-serif; font-size: 35;"><span>Nhiệt độ: </span><span id="the_switch"></span><span>°C</span></h1>
+    <h1 style="font-family: Arial, Helvetica, sans-serif; font-size: 35;"><span>Độ ẩm: </span><span id="the_switch1"></span><span>%</span></h1>
   </div>
 
 </body>
