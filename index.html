@@ -45,14 +45,14 @@
 </script>
 
 <script>
-  let config1 = null;
+  config = null;
   eraWidget.onConfiguration((configuration) => {
-    config1 = configuration.realtime_configs[1];
-    console.log('check config 0:  ', config1);
+    config = configuration.realtime_configs[1];
+    console.log('check config 1:  ', config);
   })
   eraWidget.onValues((values) => {
     // const input = document.getElementById('the_switch1');
-    var hum_value = values[config1.id].value;
+    var hum_value = values[config.id].value;
     console.log('check config value 2:  ', hum_value);
     document.getElementById('the_switch1').innerHTML = hum_value;
   });
