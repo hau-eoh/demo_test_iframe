@@ -11,6 +11,7 @@
 <script src="https://www.unpkg.com/@eohjsc/era-widget@1.0.14/src/index.js"></script>
 
 <script>
+  const eraWidget = new EraWidget();
   eraWidget.onConfiguration((configuration) => {
     document.getElementById('realtime_configs').innerHTML = ''
     configuration.realtime_configs?.map((config) => {
@@ -31,7 +32,6 @@
 </script>
 
 <script>
-  const eraWidget = new EraWidget();
   let config = null;
   eraWidget.onConfiguration((configuration) => {
     config = configuration.realtime_configs[0];
@@ -42,7 +42,6 @@
     console.log('check config value 1:  ', temp_value);
     document.getElementById('the_switch').innerHTML = temp_value;
   });
-  eraWidget.ready();
 </script>
 
 <script>
