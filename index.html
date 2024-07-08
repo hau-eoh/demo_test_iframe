@@ -1,45 +1,44 @@
 <html>
-<head>
-  <title>Test iFrame widget</title>
-</head>
-<body>
-<h1>Test iFrame widget</h1>
-<h2>Realtime configs</h2>
-<ul id="realtime_configs"></ul>
-<h2>History configs</h2>
-<ul id="history_configs"></ul>
-<script src="https://www.unpkg.com/@eohjsc/era-widget@1.0.14/src/index.js"></script>
+  <head>
+    <title>Test iFrame widget</title>
+  </head>
+  <body>
+    <h1>Test iFrame widget</h1>
+    <h2>Realtime configs</h2>
+    <ul id="realtime_configs"></ul>
+    <h2>History configs</h2>
+    <ul id="history_configs"></ul>
+    <script src="https://www.unpkg.com/@eohjsc/era-widget@1.0.14/src/index.js"></script>
 
-<script>
-  const eraWidget = new EraWidget();
-  let config = null;
-  eraWidget.onConfiguration((configuration) => {
-    config = configuration.realtime_configs[0];
-  })
-  eraWidget.onValues((values) => {
-    var temp_value = values[config.id].value;
-    console.log('check config value 1:  ', temp_value);
-    document.getElementById('the_switch').innerHTML = temp_value;
-  });
-  eraWidget.ready();
-</script>
+    <script>
+      const eraWidget = new EraWidget();
+      let config = null;
+      eraWidget.onConfiguration((configuration) => {
+        config = configuration.realtime_configs[0];
+      });
+      eraWidget.onValues((values) => {
+        var temp_value = values[config.id].value;
+        console.log("check config value 1:  ", temp_value);
+        document.getElementById("the_switch").innerHTML = temp_value;
+      });
+      eraWidget.ready();
+    </script>
 
-<script>
-  config1 = null;
-  eraWidget.onConfiguration((configuration) => {
-    config1 = configuration.realtime_configs[1];
-  })
-  eraWidget.onValues((values) => {
-    var hum_value = values[config1.id].value;
-    console.log('check config value 2:  ', hum_value);
-    document.getElementById('the_switch1').innerHTML = hum_value;
-  });
-  eraWidget.ready();
-</script>
-  <div>
-    <h1><span>Nhiệt độ:  </span><span id="the_switch">°C</span></h1>
-    <h1><span>Độ ẩm:  </span><span id="the_switch1">%</span></h1>
-  </div>
-</body>
+    <script>
+      config1 = null;
+      eraWidget.onConfiguration((configuration) => {
+        config1 = configuration.realtime_configs[1];
+      });
+      eraWidget.onValues((values) => {
+        var hum_value = values[config1.id].value;
+        console.log("check config value 2:  ", hum_value);
+        document.getElementById("the_switch1").innerHTML = hum_value;
+      });
+      eraWidget.ready();
+    </script>
+    <div>
+      <h1><span>Nhiệt độ: </span><span id="the_switch">°C</span></h1>
+      <h1><span>Độ ẩm: </span><span id="the_switch1">%</span></h1>
+    </div>
+  </body>
 </html>
- 
