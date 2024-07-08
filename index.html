@@ -9,53 +9,32 @@
 <h2>History configs</h2>
 <ul id="history_configs"></ul>
 <script src="https://www.unpkg.com/@eohjsc/era-widget@1.0.14/src/index.js"></script>
+
 <script>
   const eraWidget = new EraWidget();
-  eraWidget.onConfiguration((configuration) => {
-    document.getElementById('realtime_configs').innerHTML = ''
-    configuration.realtime_configs?.map((config) => {
-      const li = document.createElement('li');
-      li.textContent = JSON.stringify(config);
-      document.getElementById('realtime_configs').appendChild(li);
-      console.log('check config value:  ', eraWidget.onValues.value);
-    });
-
-    document.getElementById('history_configs').innerHTML = ''
-    configuration.history_configs?.map((config) => {
-      const li = document.createElement('li');
-      li.textContent = JSON.stringify(config);
-      document.getElementById('history_configs').appendChild(li);
-    });
-  })
-  eraWidget.ready();
-</script>
-
-<script>
   let config = null;
   eraWidget.onConfiguration((configuration) => {
     config = configuration.realtime_configs[0];
-    console.log('check config 0:  ', config);
   })
   eraWidget.onValues((values) => {
-    // const input = document.getElementById('the_switch');
     var temp_value = values[config.id].value;
     console.log('check config value 1:  ', temp_value);
     document.getElementById('the_switch').innerHTML = temp_value;
   });
+  eraWidget.ready();
 </script>
 
 <script>
-  config = null;
+  config1 = null;
   eraWidget.onConfiguration((configuration) => {
-    config = configuration.realtime_configs[1];
-    console.log('check config 1:  ', config);
+    config1 = configuration.realtime_configs[1];
   })
   eraWidget.onValues((values) => {
-    // const input = document.getElementById('the_switch1');
-    var hum_value = values[config.id].value;
+    var hum_value = values[config1.id].value;
     console.log('check config value 2:  ', hum_value);
     document.getElementById('the_switch1').innerHTML = hum_value;
   });
+  eraWidget.ready();
 </script>
   <div>
     <h1><span>Nhiệt độ:  </span><span id="the_switch">°C</span></h1>
