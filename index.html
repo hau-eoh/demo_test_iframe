@@ -18,11 +18,6 @@
       });
       eraWidget.onValues((values) => {
         var temp_value = values[config.id].value;
-        let unit = value[config.id].unit;
-        let tit = value[config.id].title;
-        console.log("check config value 1 title is:  ", tit);
-        console.log("check config value 1 unit is:  ", unit);
-        console.log("check config value 1:  ", temp_value);
         document.getElementById("the_switch").innerHTML = temp_value;
       });
       eraWidget.ready();
@@ -46,8 +41,12 @@
         document.getElementById("realtime_configs").innerHTML = "";
         configuration.realtime_configs?.map((config) => {
           const li = document.createElement("li");
-          console.log("all data from li:  ", li);
           li.textContent = JSON.stringify(config);
+          let unit = li.unit;
+          let tit = li.title;
+          console.log("check config value 1 title is:  ", tit);
+          console.log("check config value 1 unit is:  ", unit);
+          console.log("all data from li:  ", li);
           document.getElementById("realtime_configs").appendChild(li);
           console.log("check config value:  ", eraWidget.onValues.value);
         });
