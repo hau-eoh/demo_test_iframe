@@ -42,12 +42,8 @@
         configuration.realtime_configs?.map((config) => {
           const li = document.createElement("li");
           li.textContent = JSON.stringify(config);
-          let unit = li.unit;
-          let tit = li.title;
-          console.log("check config value 1 title is:  ", li.title);
-          console.log("check config value 1 unit is:  ", unit);
-          console.log("all data from li:  ", li);
-          document.getElementById("realtime_configs").appendChild(li);
+          document.getElementById("title_config").innerHTML = li.title + ": ";
+          document.getElementById("unit_config").innerHTML = li.unit;
           console.log("check config value:  ", eraWidget.onValues.value);
         });
 
@@ -63,7 +59,10 @@
     </script>
 
     <div>
-      <h1><span>Nhiệt độ: </span><span id="the_switch">°C</span></h1>
+      <h1>
+        <span id="title_config"></span><span id="the_switch"></span
+        ><span id="unit_config"></span>
+      </h1>
       <h1><span>Độ ẩm: </span><span id="the_switch1">%</span></h1>
     </div>
   </body>
