@@ -42,7 +42,7 @@
         configuration.realtime_configs?.map((config) => {
           const li = document.createElement("li");
           li.textContent = JSON.stringify(config);
-          document.getElementById("title_config").innerHTML = li.title + ": ";
+          document.getElementById("title_config").innerHTML = li.tagName + ": ";
           document.getElementById("unit_config").innerHTML = li.unit;
           console.log("check config value:  ", eraWidget.onValues.value);
         });
