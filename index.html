@@ -42,9 +42,11 @@
         configuration.realtime_configs?.map((config) => {
           const li = document.createElement("li");
           li.textContent = JSON.stringify(config);
-          document.getElementById("title_config").innerHTML = li.tagName + ": ";
-          document.getElementById("unit_config").innerHTML = li.unit;
-          console.log("check config value:  ", eraWidget.onValues.value);
+          const obj = JSON.parse(li);
+          document.getElementById("title_config").innerHTML = obj.name + ": ";
+          document.getElementById("unit_config").innerHTML = obj.color;
+          console.log("check config li is:  ", li);
+          document.getElementById("realtime_configs").appendChild(li);
         });
 
         document.getElementById("history_configs").innerHTML = "";
